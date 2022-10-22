@@ -1,3 +1,4 @@
+import { resolve } from "path";
 import React from "react";
 
 // 3 | Expect 断言：如何告诉程序什么是你的预期？
@@ -122,5 +123,37 @@ describe("examples for jest expect", () => {
     expect(11).not.toBeBetweenZeroAndTen();
   });
 
-  test("异步自定义匹配器", async () => {});
+  test("异步自定义匹配器", async () => {
+    const toBeBetweenZeroAndTen = async (num: number) => {
+      const res = await new Promise<{ message: () => string; pass: boolean }>(
+        (resolve) => {
+          setTimeout(() => {
+            if (num >= 0 && num <= 10) {
+              resolve({
+                message: () => "",
+                pass: true,
+              });
+            } else {
+              resolve({
+                message: () =>
+                  "expected num to be a number between zero and ten",
+                pass: false,
+              });
+            }
+          }, 1000);
+        }
+      );
+      return (
+        res || {
+          message: () => "expected num to be a number between zero and ten",
+          pass: false,
+        }
+      );
+    };
+    expect.extend({
+      toBeBetweenZeroAndTen,
+    });
+    await expect(8).toBeBetweenZeroAndTen();
+    await expect(11).not.toBeBetweenZeroAndTen();
+  });
 });
