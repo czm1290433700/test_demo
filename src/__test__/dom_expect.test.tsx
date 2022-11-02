@@ -6,12 +6,14 @@ describe("tests for 《6 | DOM断言:页面元素的断言》", () => {
   test("visible validation without semi", () => {
     render(<DomExpect />);
     // const emptyNote = screen.getByRole("generic", { name: "empty_note" });
-    // const hiddenNote = screen.getByRole("note", { hidden: true });
-    // const normalNote = screen.getByRole("note", { hidden: false });
+    // const hiddenNote = screen.getAllByRole("note", { hidden: true });
+    // const normalNote = screen.getAllByRole("note", { hidden: false });
+    // expect(hiddenNote).toHaveLength(1);
+    // expect(normalNote).toHaveLength(1);
     // expect(emptyNote).toBeEmptyDOMElement();
-    // expect(hiddenNote).not.toBeVisible();
+    // expect(hiddenNote[0]).not.toBeVisible();
     // expect(emptyNote).toBeInTheDocument();
-    // expect(hiddenNote).toBeInTheDocument();
-    // expect(normalNote).toBeInTheDocument();
+    // expect(hiddenNote[0]).toBeInTheDocument();
+    // expect(normalNote[0]).toBeInTheDocument();
   });
 });
