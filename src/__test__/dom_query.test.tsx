@@ -31,7 +31,7 @@ describe("tests for 《4 | DOM查询(上)：页面元素的渲染和行为查询
 
   test("aria-describedby", () => {
     render(<DomQuery />);
-    const button = screen.getAllByRole("button", {
+    const button = screen.getByRole("button", {
       description: "自定义aria按钮",
     });
     screen.debug(button);
@@ -39,7 +39,7 @@ describe("tests for 《4 | DOM查询(上)：页面元素的渲染和行为查询
 
   test("aria-label", () => {
     render(<DomQuery />);
-    const note = screen.getAllByRole("generic", { name: "test_note" });
+    const note = screen.getByRole("generic", { name: "test_note" });
     screen.debug(note);
   });
 
