@@ -14,6 +14,7 @@ export const DomQuery: FC<IProps> = ({}) => {
       <button aria-describedby="description">
         <div id="description">自定义aria按钮</div>
       </button>
+      <div aria-label="test_note">1234</div>
       <label>
         testLabel
         <input />

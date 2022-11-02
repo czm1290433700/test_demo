@@ -37,6 +37,12 @@ describe("tests for 《4 | DOM查询(上)：页面元素的渲染和行为查询
     screen.debug(button);
   });
 
+  test("aria-label", () => {
+    render(<DomQuery />);
+    const note = screen.getAllByRole("generic", { name: "test_note" });
+    screen.debug(note);
+  });
+
   test("labelText", () => {
     render(<DomQuery />);
     const label = screen.getByLabelText("testLabel");
