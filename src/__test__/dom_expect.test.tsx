@@ -32,8 +32,9 @@ describe("tests for 《6 | DOM断言:页面元素的断言》", () => {
     });
     expect(username).toBeDisabled();
     expect(age).toBeEnabled();
-    expect(age).toBeRequired();
-    age.focus();
+    act(() => {
+      age.focus();
+    });
     expect(age).toHaveFocus();
     expect(manCheckbox).toBeChecked();
     expect(womanCheckbox).not.toBeChecked();
@@ -63,7 +64,9 @@ describe("tests for 《6 | DOM断言:页面元素的断言》", () => {
     expect(username).toBeDisabled();
     expect(age).toBeEnabled();
     expect(age).toBeRequired();
-    age.focus();
+    act(() => {
+      age.focus();
+    });
     expect(age).toHaveFocus();
     // expect(username).toHaveValue('zhenmin');
     // expect(hobby).toHaveValue('code');
