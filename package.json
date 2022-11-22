@@ -23,6 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "updateSnap": "react-scripts test --updateSnapshot",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
