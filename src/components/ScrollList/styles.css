@@ -1,0 +1,7 @@
+.scrollList {
+  overflow: auto;
+}
+
+.item {
+  padding: 8px 0;
+}
