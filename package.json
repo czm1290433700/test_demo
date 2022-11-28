@@ -24,7 +24,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:all": "react-scripts test --watchAll",
-    "updateSnap": "react-scripts test --updateSnapshot",
+    "test:updateSnap": "react-scripts test --updateSnapshot",
+    "test:coverage": "react-scripts test --watchAll --coverage",
     "eject": "react-scripts eject",
     "cypress": "cypress open",
     "storybook": "start-storybook -p 6006 -s public",
@@ -84,16 +85,28 @@
   },
   "jest": {
     "transform": {
-      "^.+\\.(t|j)sx?$": "esbuild-jest"
+      "^.+\\.(t|j)sx?$": "babel-jest"
     },
     "transformIgnorePatterns": [
       "node_modules/(?!axios)"
     ],
     "moduleNameMapper": {
       "\\.(css|scss)$": "<rootDir>/styleMock.js"
+    },
+    "collectCoverageFrom": [
+      "<rootDir>/src/components/**/*.{js,jsx,tsx,(!d).ts}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
     }
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.10.0",
     "@storybook/addon-actions": "^6.5.13",
     "@storybook/addon-essentials": "^6.5.13",
     "@storybook/addon-interactions": "^6.5.13",
@@ -104,6 +117,7 @@
     "@storybook/preset-create-react-app": "^4.1.2",
     "@storybook/react": "^6.5.13",
     "@storybook/testing-library": "^0.0.13",
+    "babel-plugin-istanbul": "^6.1.1",
     "babel-plugin-named-exports-order": "^0.0.2",
     "cypress": "^11.2.0",
     "esbuild-jest": "^0.5.0",
