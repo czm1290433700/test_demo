@@ -26,9 +26,10 @@
     "test:all": "react-scripts test --watchAll",
     "test:updateSnap": "react-scripts test --updateSnapshot",
     "test:coverage": "react-scripts test --watchAll --coverage",
-    "coverage:merge": "npx istanbul-combine -d test/merged -p detail -r lcov -r json .nyc_output/out.json  coverage/coverage-final.json",
+    "coverage:merge": "npm run cypress:run && npm run test:coverage && npx istanbul-combine -d test/merged -p detail -r lcov -r json .nyc_output/out.json  coverage/coverage-final.json",
     "eject": "react-scripts eject",
     "cypress": "cypress open",
+    "cypress:run": "cypress run",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
   },
