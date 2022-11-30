@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`examples for snap a test for component snap 1`] = `
+<body>
+  <div>
+    <form
+      aria-label="form"
+    >
+      <input
+        aria-disabled="true"
+        aria-label="form_username"
+        disabled=""
+        name="username"
+        type="text"
+        value="zhenmin"
+      />
+      <input
+        aria-label="form_age"
+        name="age"
+        required=""
+        type="number"
+        value="23"
+      />
+      <input
+        aria-checked="true"
+        aria-label="form_sex"
+        checked=""
+        name="sex"
+        type="radio"
+        value="man"
+      />
+      <input
+        aria-label="form_sex"
+        name="sex"
+        type="radio"
+        value="woman"
+      />
+    </form>
+  </div>
+</body>
+`;
+
+exports[`examples for snap a test for part component snap 1`] = `
+<input
+  aria-disabled="true"
+  aria-label="form_username"
+  disabled=""
+  name="username"
+  type="text"
+  value="zhenmin"
+/>
+`;
+
+exports[`examples for snap a test for string snap 1`] = `"a test for string snap1"`;
