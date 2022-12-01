@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  coverage:
+  storybook:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -21,6 +21,15 @@ jobs:
         run: npm run build-storybook
       - name: Serve storybook
         run: nohup npx http-server -p 6006 storybook-static
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+      - name: Run install
+        run: npm install
       - name: Run Coverage merge
         run: npx wait-on http://127.0.0.1:6006 && npm run coverage:merge
       - name: Run codecov
