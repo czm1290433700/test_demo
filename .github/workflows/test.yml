@@ -2,9 +2,10 @@ name: test
 
 on:
   push:
-    branches: [master, feat/unit_test]
+    branches: [master]
   pull_request:
     branches: [master]
+  workflow_dispatch:
 
 jobs:
   storybook:
