@@ -8,6 +8,17 @@ on:
   workflow_dispatch:
 
 jobs:
+  storybook:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+      - name: Run install
+        run: npm install
+      - name: Serve storybook
+        run: npm run storybook
   coverage:
     runs-on: ubuntu-latest
     steps:
@@ -20,6 +31,6 @@ jobs:
       - name: Serve storybook
         run: npm run storybook
       - name: Run Coverage merge
-        run: npm run coverage:merge
+        run: npx wait-on http://127.0.0.1:6006 && npm run coverage:merge
       - name: Run codecov
         run: npx codecov --token=${{ secrets.CODECOV_TOKEN }} --file=test/merged/coverage-final.json
