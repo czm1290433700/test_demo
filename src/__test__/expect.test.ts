@@ -4,7 +4,7 @@ import React from "react";
 describe("examples for jest expect", () => {
   test("基础类型的比较", () => {
     // tobe
-    expect(1 + 1).toBe(2);
+    expect(1 + 1).not.toBe(2);
     // not
     expect(1 + 1).not.toBe(3);
     // boolean
