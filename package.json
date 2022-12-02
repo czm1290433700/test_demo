@@ -72,7 +72,7 @@
     "test:all": "node scripts/test.js --watchAll",
     "test:updateSnap": "node scripts/test.js --updateSnapshot",
     "test:coverage": "node scripts/test.js --watchAll --coverage",
-    "coverage:merge": "npx istanbul-combine -d test/merged -p detail -r lcov -r json jest/coverage/coverage-final.json coverage/coverage-final.json",
+    "coverage:merge": "istanbul-merge --out coverage.json jest/coverage/coverage-final.json coverage/coverage-final.json",
     "cypress": "cypress open",
     "cypress:run": "cypress run",
     "storybook": "start-storybook -p 6006 -s public",
@@ -198,6 +198,7 @@
     "babel-plugin-named-exports-order": "^0.0.2",
     "cypress": "^11.2.0",
     "esbuild-jest": "^0.5.0",
+    "istanbul-merge": "^1.1.1",
     "prop-types": "^15.8.1",
     "wait-on": "^6.0.1",
     "webpack": "^5.75.0"
