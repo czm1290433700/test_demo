@@ -17,11 +17,13 @@ jobs:
           node-version: "16"
       - name: Run install
         run: npm install
-      - name: Build storybook
-        run: npm run build-storybook
+      - name: Run Jest coverage
+        run: npm run test:coverage &
       - name: Serve storybook
-        run: nohup npx http-server -p 6006 storybook-static &
+        run: npm run storybook &
+      - name: Run Cypress coverage
+        run: npm run cypress:run
       - name: Run Coverage merge
-        run: npx wait-on http://127.0.0.1:6006 && npm run coverage:merge &
+        run: npx wait-on http://127.0.0.1:6006 && npm run coverage:merge
       - name: Run codecov
         run: npx codecov --token=${{ secrets.CODECOV_TOKEN }} --file=test/merged/coverage-final.json
