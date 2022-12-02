@@ -28,4 +28,4 @@ jobs:
       - name: Run Coverage merge
         run: npx wait-on http://127.0.0.1:6006 && npm run coverage:merge
       - name: Run codecov
-        run: npx codecov --token=${{ secrets.CODECOV_TOKEN }} --file=test/merged/coverage-final.json
+        run: npx codecov --token=${{ secrets.CODECOV_TOKEN }} --file=coverage.json
