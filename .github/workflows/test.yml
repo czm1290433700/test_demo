@@ -24,9 +24,9 @@ jobs:
       - name: Serve storybook
         run: nohup npx http-server -p 6006 storybook-static &
       - name: Run Cypress coverage
-        run: npm run cypress:run
+        run: npx wait-on http://127.0.0.1:6006 && npm run cypress:run
       - name: Run Coverage merge
-        run: npx wait-on http://127.0.0.1:6006 && npm run coverage:merge
+        run: npm run coverage:merge
       - name: Run codecov
         run: npx codecov --token=${{ secrets.CODECOV_TOKEN }} --file=coverage.json
       - name: Run test
